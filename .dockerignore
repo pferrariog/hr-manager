@@ -1,0 +1,6 @@
+.venv
+.env
+.yamllint
+.pre-commit-config.yaml
+ReadMe.md
+.gitignore
