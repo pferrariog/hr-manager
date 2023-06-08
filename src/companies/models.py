@@ -9,3 +9,7 @@ class Company(models.Model):
     description = models.CharField(
         max_length=100, help_text="Tiny company description", blank=True
     )
+
+    def __str__(self) -> str:
+        """Return a string representation"""
+        return self.name
