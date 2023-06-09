@@ -117,7 +117,7 @@ uvloop = ["uvloop (>=0.15.2)"]
 name = "certifi"
 version = "2023.5.7"
 description = "Python package for providing Mozilla's CA Bundle."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 files = [
@@ -1275,4 +1275,4 @@ dev = ["doc8", "flake8", "flake8-import-order", "rstcheck[sphinx]", "sphinx"]
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.10,<3.12"
-content-hash = "aa5ea2c85f6a449da6b291d408c46d0d4db8f20a420a295e5f0e6c6b12671262"
+content-hash = "3b44372f7891d6b38158059d94881d441157171f419dc6263b7d2641aa7eaf7a"
