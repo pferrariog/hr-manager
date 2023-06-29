@@ -3,13 +3,19 @@
 {% block body %}
 <div class="row">
     <div class="col">
-      Column
+      Hi {{ user.employee.name }}
     </div>
     <div class="col">
         <a href="{% url 'login' %}">Login</a>
     </div>
     <div class="col">
         <a href="{% url 'logout' %}">Logout</a>
+
+        {% if user.employee.company %}
+          <a href="{% url 'edit_company' user.employee.company.id %}">Edit company profile</a>
+        {% else %}
+          <a href="{% url 'create_company' %}">Create company profile</a>
+        {% endif %}
     </div>
   </div>
 {% endblock %}
