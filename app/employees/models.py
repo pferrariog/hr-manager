@@ -2,6 +2,7 @@ from companies.models import Company
 from departments.models import Department
 from django.contrib.auth.models import User
 from django.db import models
+from django.urls import reverse
 
 
 class Employee(models.Model):
@@ -15,3 +16,7 @@ class Employee(models.Model):
     def __str__(self) -> str:
         """Return a string representation"""
         return self.name
+
+    def get_absolute_url(self):
+        """Return to the employees list view"""
+        return reverse("employees_information")

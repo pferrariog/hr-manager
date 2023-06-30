@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    Employees <br>
+    {% for object in object_list %}
+        <a href="{% url 'edit_employee' object.id %}">
+            {{ object }}
+        </a><br>
+    {% endfor %}
+
+{% endblock %}

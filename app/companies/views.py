@@ -5,7 +5,7 @@ from django.views.generic.edit import UpdateView
 from .models import Company
 
 
-class CompanyCreate(CreateView):
+class CreateCompany(CreateView):
     """Default create company view"""
 
     model = Company
@@ -20,7 +20,7 @@ class CompanyCreate(CreateView):
         return HttpResponse("Ok")
 
 
-class CompanyEdit(UpdateView):
+class EditCompany(UpdateView):
     """Update company information"""
 
     model = Company
