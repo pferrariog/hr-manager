@@ -2,10 +2,16 @@
 
 {% block body %}
     Employees <br>
-    {% for object in object_list %}
-        <a href="{% url 'edit_employee' object.id %}">
-            {{ object }}
-        </a><br>
+    {% for employee in object_list %}
+        <a href="{% url 'edit_employee' employee.id %}">
+            {{ employee }}
+        </a>
+        <a href="{% url 'delete_employee' employee.id %}">
+            delete
+        </a>
+        <br>
     {% endfor %}
 
+
+<a href="{% url 'create_employee' %}" class="btn btn-info">new</a>
 {% endblock %}
