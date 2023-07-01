@@ -3,7 +3,8 @@
 {% block body %}
 <div class="row">
     <div class="col">
-      Hi {{ user.employee.name }}
+      Hi {{ user.employee.name }} <br>
+      <a href="{% url 'employees_information' %}">Manage employees</a>
     </div>
     <div class="col">
         <a href="{% url 'login' %}">Login</a>
