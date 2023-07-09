@@ -1,5 +1,6 @@
 from companies.models import Company
 from django.db import models
+from django.urls import reverse
 
 
 class Department(models.Model):
@@ -11,3 +12,7 @@ class Department(models.Model):
     def __str__(self) -> str:
         """Return a string representation"""
         return self.name
+
+    def get_absolute_url(self):
+        """Return to the employees list view"""
+        return reverse("departments_list")
