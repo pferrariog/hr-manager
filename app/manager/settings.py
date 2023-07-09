@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     "departments",
     "reports",
     "overtime",
+    "bootstrapform",
 ]
 
 MIDDLEWARE = [
