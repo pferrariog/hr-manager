@@ -2,6 +2,8 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,flask,visualstudiocode,pycharm
 **/static/
 
+media
+.vscode
 
 ### Flask ###
 instance/*

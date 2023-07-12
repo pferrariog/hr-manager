@@ -15,6 +15,7 @@ psycopg2 = "^2.9.6"
 django = "^4.2.2"
 jinja2 = "^3.1.2"
 django-bootstrap-form = "^3.4"
+pre-commit = "^3.3.3"
 
 
 [tool.poetry.dev-dependencies]
@@ -26,7 +27,6 @@ flake8-annotations = "^2.9.1"
 isort = "^5.10.1"
 bandit = {version = "^1.7.4", extras = ['toml']}
 black = "^22.6.0"
-pre-commit = "^2.20.0"
 commitizen = "^2.32.2"
 flake8-bugbear = "^22.8.23"
 yamllint = "^1.27.1"
