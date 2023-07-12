@@ -29,4 +29,7 @@ class DeleteDocument(DeleteView):
 
     model = Report
     pk_url_kwarg = "id"
-    success_url = reverse_lazy("employees_information")
+
+    def get_success_url(self):
+        """Override the default success url method"""
+        return reverse_lazy("edit_employee", args=[self.object.owner.id])
