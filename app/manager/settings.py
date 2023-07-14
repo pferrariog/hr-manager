@@ -8,11 +8,9 @@ from pathlib import Path
 # settings = DjangoDynaconf(__name__)
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-# SECRET_KEY = settings.get("DJANGO_SECRET_KEY")
 # SECRET_KEY = "asd"
 DEBUG = True
 ALLOWED_HOSTS = []
-# ALLOWED_HOSTS = settings.get("ALLOWED_HOSTS")
 
 
 # Application definition
@@ -104,10 +102,10 @@ STATICFILES_DIRS = [
 # Default primary key field type
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+# Login & Logout
 LOGIN_REDIRECT_URL = "home"
-
 LOGOUT_REDIRECT_URL = "login"
 
+# Media content
 MEDIA_URL = "/media/"
-
 MEDIA_ROOT = BASE_DIR / "media"

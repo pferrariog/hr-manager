@@ -4,11 +4,13 @@
 <div class="row">
     <div class="col">
       Hi {{ user.employee.name }} <br>
-      <a href="{% url 'employees_information' %}">Manage employees</a>
-      <a href="{% url 'departments_list' %}">Manage departments</a>
+      <a href="{% url 'employees_information' %}">Manage employees</a><br>
+      <a href="{% url 'departments_list' %}">Manage departments</a><br>
+      <a href="{% url 'overtime_list' %}">Manage overtime registers</a><br>
     </div>
     <div class="col">
-        <a href="{% url 'login' %}">Login</a>
+        <!-- <a href="{% url 'login' %}">Login</a> -->
+        ...
     </div>
     <div class="col">
         <a href="{% url 'logout' %}">Logout</a>
