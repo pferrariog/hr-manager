@@ -14,5 +14,5 @@ class Department(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        """Return to the employees list view"""
+        """Return to the departments list view"""
         return reverse("departments_list")

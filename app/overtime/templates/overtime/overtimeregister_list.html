@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    Overtime Registers <br>
+    {% if not object_list %}
+        <h3>There's any overtime register!</h3>
+    {% else %}
+        {% for register in object_list %}
+            <a href="{% url 'edit_overtime_register' register.id %}">{{ register }}</a><br>
+        {% endfor %}
+    {% endif %}
+
+<a href="{% url 'create_overtime_register' %}" class="btn btn-info">new</a>
+{% endblock %}
