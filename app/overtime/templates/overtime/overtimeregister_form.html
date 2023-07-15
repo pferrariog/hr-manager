@@ -2,13 +2,16 @@
 {% load bootstrap %}
 
 {% block body %}
-    Edit
+    Edit Register
     <form method="POST">
         {% csrf_token %}
         {{ form|bootstrap }}
         <button type="submit"  class="btn btn-primary">Save</button>
-        <a href="" class="btn btn-danger">
-            Delete
-        </a>
+
+        {% if object %}
+            <a href="{% url 'delete_overtime_register' object.id %}" class="btn btn-danger">
+                Delete
+            </a>
+        {% endif %}
     </form>
 {% endblock %}

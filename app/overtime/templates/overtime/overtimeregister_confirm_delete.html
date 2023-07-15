@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    Delete
+    <form method="POST">
+        {% csrf_token %}
+
+        <h2>Confirm the delete of register {{ department }}?</h2>
+        {{ form }}
+        <button type="submit" class="btn btn-danger">Confirm</button>
+    </form>
+{% endblock %}

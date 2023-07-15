@@ -4,6 +4,7 @@
 
 media
 .vscode
+.idea
 
 ### Flask ###
 instance/*

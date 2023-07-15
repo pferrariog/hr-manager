@@ -1,9 +1,13 @@
+from typing import Any
+from typing import Dict
+
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 from django.views.generic import DeleteView
 from django.views.generic import ListView
 from django.views.generic import UpdateView
 
+from .forms import OvertimeRegisterForm
 from .models import OvertimeRegister
 
 
@@ -27,7 +31,13 @@ class CreateOvertimeRegister(CreateView):
     """Create a overtime register to an employee"""
 
     model = OvertimeRegister
-    fields = ["hours", "reason"]
+    form_class = OvertimeRegisterForm
+
+    def get_form_kwargs(self) -> Dict[str, Any]:
+        """Set the current session's user as base to the form query"""
+        kwargs = super().get_form_kwargs()
+        kwargs.update({"user": self.request.user})
+        return kwargs
 
 
 class EditOvertimeRegister(UpdateView):
@@ -35,7 +45,13 @@ class EditOvertimeRegister(UpdateView):
 
     model = OvertimeRegister
     pk_url_kwarg = "id"
-    fields = "__all__"
+    form_class = OvertimeRegisterForm
+
+    def get_form_kwargs(self) -> Dict[str, Any]:
+        """Set the current session's user as base to the form query"""
+        kwargs = super().get_form_kwargs()
+        kwargs.update({"user": self.request.user})
+        return kwargs
 
 
 class DeleteOvertimeRegister(DeleteView):
@@ -43,4 +59,4 @@ class DeleteOvertimeRegister(DeleteView):
 
     model = OvertimeRegister
     pk_url_kwarg = "id"
-    success_url = reverse_lazy("")
+    success_url = reverse_lazy("overtime_list")
