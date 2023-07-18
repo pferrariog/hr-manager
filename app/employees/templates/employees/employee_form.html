@@ -13,7 +13,7 @@
     </form>
 <br>
 
-<h3>Employee Documents</h3>
+<h4>Employee Documents</h4>
 <ul>
     {% for document in employee.report_set.all %}
         <li>
@@ -25,12 +25,12 @@
 <a href="{% url 'create_document' employee.id %}" class="btn btn-success">Add document</a>
 <br>
 
-<h3>Overtime Register</h3>
+<h4>Overtime Register</h4>
 <ul>
     {% for register in employee.overtimeregister_set.all %}
         <li>{{ register }} - {{ register.hours}}</li>
     {% endfor %}
 </ul>
-<a href="{% url 'create_overtime_register' %}" class="btn btn-success">Add register</a>
-<br>
+
+<h5>Total overtime hours - {{ employee.total_overtime_hours }}</h5>
 {% endblock %}
