@@ -12,11 +12,27 @@
         </a>
     </form>
 <br>
+
+<h4>Employee Documents</h4>
+<ul>
+    {% for document in employee.report_set.all %}
+        <li>
+            <a href="{{ document.file.url }}">{{ document.description }}</a>
+            <a href="{% url 'delete_document' document.id %}">delete</a>
+        </li>
+    {% endfor %}
+</ul>
 <a href="{% url 'create_document' employee.id %}" class="btn btn-success">Add document</a>
 <br>
-<h3>Employee Documents</h3>
-{% for document in employee.report_set.all %}
-<a href="{{ document.file.url }}">{{ document.description }}</a>
-<a href="{% url 'delete_document' document.id %}">delete</a><br>
-{% endfor %}
+
+<h4>Overtime Register</h4>
+<ul>
+    {% for register in employee.overtimeregister_set.all %}
+        <li><a href="{% url 'edit_overtime_register_employee' register.id %}">
+            {{ register }} - {{ register.hours}}
+        </a></li>
+    {% endfor %}
+</ul>
+
+<h5>Total overtime hours - {{ employee.total_overtime_hours }}</h5>
 {% endblock %}

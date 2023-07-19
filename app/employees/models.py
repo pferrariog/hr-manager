@@ -20,3 +20,10 @@ class Employee(models.Model):
     def get_absolute_url(self):
         """Return to the employees list view"""
         return reverse("employees_information")
+
+    @property
+    def total_overtime_hours(self):
+        """Sum the amount of overtime register hours"""
+        registers = self.overtimeregister_set.all()
+        total_dict = registers.aggregate(models.Sum("hours"))
+        return total_dict["hours__sum"]
