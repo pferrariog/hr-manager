@@ -28,7 +28,9 @@
 <h4>Overtime Register</h4>
 <ul>
     {% for register in employee.overtimeregister_set.all %}
-        <li>{{ register }} - {{ register.hours}}</li>
+        <li><a href="{% url 'edit_overtime_register_employee' register.id %}">
+            {{ register }} - {{ register.hours}}
+        </a></li>
     {% endfor %}
 </ul>
 

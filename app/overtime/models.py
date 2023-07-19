@@ -16,4 +16,4 @@ class OvertimeRegister(models.Model):
 
     def get_absolute_url(self):
         """Return to the register list view"""
-        return reverse("overtime_list")
+        return reverse("edit_employee", args=[self.employee.id])

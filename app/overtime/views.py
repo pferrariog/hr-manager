@@ -47,6 +47,24 @@ class EditOvertimeRegister(UpdateView):
     pk_url_kwarg = "id"
     form_class = OvertimeRegisterForm
 
+    def get_success_url(self) -> str:
+        """Override the absolute url"""
+        return reverse_lazy("overtime_list")
+
+    def get_form_kwargs(self) -> Dict[str, Any]:
+        """Set the current session's user as base to the form query"""
+        kwargs = super().get_form_kwargs()
+        kwargs.update({"user": self.request.user})
+        return kwargs
+
+
+class EditOvertimeRegisterEmployee(UpdateView):
+    """Update a register's fields"""
+
+    model = OvertimeRegister
+    pk_url_kwarg = "id"
+    form_class = OvertimeRegisterForm
+
     def get_form_kwargs(self) -> Dict[str, Any]:
         """Set the current session's user as base to the form query"""
         kwargs = super().get_form_kwargs()
