@@ -1,5 +1,7 @@
 #!/bin/sh
 
-poetry run flask db upgrade
+python manage.py migrate --no-input
+python manage.py collectstatic
 
-exec poetry run gunicorn -b 0.0.0.0:80 "stores.app:create_app()"
+exec "$@"
+# gunicorn app.manager.wsgi:application --bind 0.0.0.0:8000

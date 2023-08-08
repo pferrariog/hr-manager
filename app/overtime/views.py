@@ -6,9 +6,12 @@ from django.views.generic import CreateView
 from django.views.generic import DeleteView
 from django.views.generic import ListView
 from django.views.generic import UpdateView
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.viewsets import ModelViewSet
 
 from .forms import OvertimeRegisterForm
 from .models import OvertimeRegister
+from .serializers import OvertimeRegisterSerializer
 
 
 class ListOvertimeRegisters(ListView):
@@ -78,3 +81,11 @@ class DeleteOvertimeRegister(DeleteView):
     model = OvertimeRegister
     pk_url_kwarg = "id"
     success_url = reverse_lazy("overtime_list")
+
+
+class OvertimeViewset(ModelViewSet):
+    """API Endpoint to manage overtime registers"""
+
+    queryset = OvertimeRegister.objects.all()
+    serializer_class = OvertimeRegisterSerializer
+    permission_classes = [IsAuthenticated]
