@@ -6,6 +6,7 @@ from django.views.generic import CreateView
 from django.views.generic import DeleteView
 from django.views.generic import ListView
 from django.views.generic import UpdateView
+from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import ModelViewSet
 
@@ -89,3 +90,4 @@ class OvertimeViewset(ModelViewSet):
     queryset = OvertimeRegister.objects.all()
     serializer_class = OvertimeRegisterSerializer
     permission_classes = [IsAuthenticated]
+    authentication_classes = [TokenAuthentication]

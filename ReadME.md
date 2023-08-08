@@ -27,4 +27,4 @@
 
 ## TODO
 
-...
+- Add docker-compose (django + nginx containers)

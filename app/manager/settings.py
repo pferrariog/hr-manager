@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     "overtime",
     "bootstrapform",
     "rest_framework",
+    "rest_framework.authtoken",
 ]
 
 MIDDLEWARE = [

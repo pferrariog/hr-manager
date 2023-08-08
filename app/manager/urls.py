@@ -6,6 +6,7 @@ from django.urls import include
 from django.urls import path
 from employees.views import EmployeeViewSet
 from overtime.views import OvertimeViewset
+from rest_framework.authtoken.views import obtain_auth_token
 from rest_framework.routers import DefaultRouter
 
 
@@ -24,5 +25,5 @@ urlpatterns = [
     path("employee/", include("employees.urls")),
     path("overtime/", include("overtime.urls")),
     path("report/", include("reports.urls")),
-    path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
+    path("api-auth/", obtain_auth_token, name="api_authentication"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
