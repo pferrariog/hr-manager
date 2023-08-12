@@ -4,3 +4,5 @@
 .pre-commit-config.yaml
 ReadMe.md
 .gitignore
+.idea
+.vscode
