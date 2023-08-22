@@ -1,0 +1,24 @@
+---
+version: '3.8'
+
+services:
+  nginx:
+    build: ./nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./app/static:/var/www/static
+      - ./app/media:/var/www/media
+    depends_on:
+      - django
+  django:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./app/static:/app/static
+      - ./app/media:/app/media
+    env_file:
+      - ./app/.env

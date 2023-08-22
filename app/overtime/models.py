@@ -9,6 +9,7 @@ class OvertimeRegister(models.Model):
     reason = models.CharField(max_length=150)
     hours = models.DecimalField(max_digits=5, decimal_places=2)
     employee = models.ForeignKey(Employee, on_delete=models.PROTECT)
+    creation_date = models.DateField(auto_now_add=True)
 
     def __str__(self) -> str:
         """Return a string representation"""

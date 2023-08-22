@@ -6,8 +6,12 @@ from django.views.generic import CreateView
 from django.views.generic import DeleteView
 from django.views.generic.edit import UpdateView
 from django.views.generic.list import ListView
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.viewsets import ModelViewSet
 
 from .models import Employee
+from .serializers import EmployeeSerializer
 
 
 class ListEmployees(ListView):
@@ -52,3 +56,12 @@ class CreateEmployee(CreateView):
         )
         employee_object.save()
         return super(CreateEmployee, self).form_valid(form)
+
+
+class EmployeeViewSet(ModelViewSet):
+    """API Endpoint to manage employees"""
+
+    queryset = Employee.objects.all()
+    serializer_class = EmployeeSerializer
+    permission_classes = [IsAuthenticated]
+    authentication_classes = [TokenAuthentication]
