@@ -1,7 +1,7 @@
 
-# TODO - Description
+# HR Manager
 
-...
+An multi-tenant app to manage human resources into a company
 
 ## Requirements
 
@@ -12,19 +12,21 @@
 
 - Create configuration files
 
-  > - This project uses [Dynaconf](https://www.dynaconf.com/flask/) as management tool/library, so checkout their documentation for more details
+  > - This project uses [Dynaconf](https://www.dynaconf.com/) as management tool/library, so checkout their documentation for more details
 
   - settings.toml - Here goes project configuration
   - .secrets.toml - Here goes enviroment secrets
   - .env - Here goes your flask configurations
 
-- Build the image and run the container
+- Build images and run container with compose
 
 ```sh
-    docker build -t $IMAGE_NAME .
-    docker run -d -p 80:80 --name $CONTAINER_NAME $IMAGE_NAME
+    docker compose up --build
 ```
 
 ## TODO
 
-- Add docker-compose (django + nginx containers)
+- Multi-database
+- Improve templates
+- Add to domain
+- Add dynaconf or other settings management tool
